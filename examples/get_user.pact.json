@@ -1,0 +1,51 @@
+{
+  "pactVersion": 1,
+  "tool": "get_user",
+  "arguments": {
+    "id": 1
+  },
+  "recordedAt": "2026-09-24T09:48:09.229Z",
+  "resultShape": {
+    "type": "object",
+    "fields": {
+      "content": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "type": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "structuredContent": {
+        "type": "object",
+        "fields": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "serverCommand": "node test/fixtures/test-server.mjs"
+}
