@@ -1,0 +1,46 @@
+{
+  "name": "mcppact",
+  "version": "0.1.0",
+  "description": "Consumer-driven contract testing for MCP (Model Context Protocol) servers: record the tool calls your integration depends on, then verify the real server still honors their shape in CI.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "mcppact": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "pretest": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "contract-testing",
+    "consumer-driven-contracts",
+    "pact",
+    "ci",
+    "llm",
+    "agent"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}
