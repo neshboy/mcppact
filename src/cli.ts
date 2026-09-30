@@ -5,9 +5,8 @@ import { Command } from "commander";
 
 import { recordPact } from "./record.js";
 import { verifyPacts } from "./verify.js";
+import { PACKAGE_VERSION } from "./client.js";
 import type { Pact } from "./types.js";
-
-const PACKAGE_VERSION = "0.1.0";
 
 const program = new Command();
 
@@ -31,6 +30,12 @@ program
       args = JSON.parse(opts.args);
     } catch (err) {
       console.error(`mcppact: --args is not valid JSON: ${err instanceof Error ? err.message : err}`);
+      process.exitCode = 1;
+      return;
+    }
+
+    if (typeof args !== "object" || args === null || Array.isArray(args)) {
+      console.error("mcppact: --args must be a JSON object.");
       process.exitCode = 1;
       return;
     }
